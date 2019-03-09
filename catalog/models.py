@@ -16,6 +16,10 @@ class Genre(models.Model):
         String for representing the Model object (in Admin site etc.)
         """
         return self.name
+
+    class Meta:
+        verbose_name = "Genre"
+        verbose_name_plural = "Genre"
         
         
 class Language(models.Model):
@@ -29,6 +33,10 @@ class Language(models.Model):
         String for representing the Model object (in Admin site etc.)
         """
         return self.name
+
+    class Meta:
+        verbose_name = "Language"
+        verbose_name_plural = "Language"
         
         
 class Book(models.Model):
@@ -65,6 +73,10 @@ class Book(models.Model):
         String for representing the Model object.
         """
         return self.title
+
+    class Meta:
+        verbose_name = "Book"
+        verbose_name_plural = "Book"
         
         
 import uuid # Required for unique book instances
@@ -100,7 +112,10 @@ class BookInstance(models.Model):
 
     class Meta:
         ordering = ["due_back"]
-        permissions = (("can_mark_returned", "Set book as returned"),)   
+        permissions = (("can_mark_returned", "Set book as returned"),) 
+
+        verbose_name = "BookInstance"
+        verbose_name_plural = "BookInstance"  
 
     def __str__(self):
         """
@@ -134,3 +149,7 @@ class Author(models.Model):
         String for representing the Model object.
         """
         return '{0}, {1}'.format(self.last_name,self.first_name)
+
+    class Meta:
+        verbose_name = "Author"
+        verbose_name_plural = "Author"
