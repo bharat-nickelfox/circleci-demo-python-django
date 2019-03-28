@@ -34,6 +34,7 @@ class AuthorAdmin(admin.ModelAdmin):
     """
     list_display = ('last_name', 'first_name', 'date_of_birth', 'date_of_death')
     fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
+    # Author  add multiple books in author model using inline
     inlines = [BooksInline]
 
 
@@ -51,6 +52,7 @@ class BookAdmin(admin.ModelAdmin):
      - adds inline addition of book instances in book view (inlines)
     """
     list_display = ('title', 'author', 'display_genre')
+    # Add book instance inline in Book author
     inlines = [BooksInstanceInline]
 
 admin.site.register(Book, BookAdmin)
